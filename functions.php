@@ -1,25 +1,21 @@
 <?php
-/**
- * Regals Way functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Regals_Way
- */
+
+
+// remove native categories and tags from admin menu, we will do our own
+function remove_menus(){
+	remove_menu_page('edit-comments.php');
+
+	remove_submenu_page('edit.php','edit-tags.php?taxonomy=post_tag');
+	remove_submenu_page('edit.php','edit-tags.php?taxonomy=category');
+}
+add_action( 'admin_menu', 'remove_menus' );
+
 
 if ( ! function_exists( 'regals_way_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
 	function regals_way_setup() {
 
-
 		// magazine issues taxonomy
-		register_taxonomy( 'issue', array( 'post' ), array(
+		register_taxonomy( 'issue', array( 'post', 'quotes' ), array(
 			'labels' => array(
 				'name' => _x( 'Issues', 'Taxonomy General Name', 'text_domain' ),
 				'singular_name' => _x( 'Issue', 'Taxonomy Singular Name', 'text_domain' )
@@ -32,7 +28,7 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 		));
 
 		// magazine themes taxonomy
-		register_taxonomy( 'theme', array( 'post' ), array(
+		register_taxonomy( 'theme', array( 'post', 'quotes' ), array(
 			'labels' => array(
 				'name' => _x( 'Themes', 'Taxonomy General Name', 'text_domain' ),
 				'singular_name' => _x( 'Theme', 'Taxonomy Singular Name', 'text_domain' )
@@ -45,6 +41,30 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 		));
 
 
+		// quotes posts type
+		register_post_type( 'quotes', array(
+			'labels' => array(
+				'name' => _x( 'Quotes', 'Post Type General Name', 'text_domain' ),
+				'singular_name' => _x( 'Quote', 'Post Type Singular Name', 'text_domain' ),
+			),
+			'menu_icon' => 'dashicons-format-quote',
+			'supports' => array('title', 'thumbnail'),
+			'taxonomies' => array( 'issue', 'theme' ),
+			'hierarchical'          => false,
+			'public'                => true,
+			'show_ui'               => true,
+			'show_in_menu'          => true,
+			'menu_position'         => 5,
+			'show_in_admin_bar'     => true,
+			'show_in_nav_menus'     => true,
+			'can_export'            => true,
+			'has_archive'           => true,
+			'exclude_from_search'   => false,
+			'publicly_queryable'    => true,
+			'capability_type'       => 'post',
+		) );
+
+
 
 
 		
@@ -52,16 +72,6 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 
 
 
-
-
-
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Regals Way, use a find and replace
-		 * to change 'regals_way' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'regals_way', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -97,110 +107,6 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'gallery',
 			'caption',
 		) );
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'regals_way_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
-
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
 	}
 endif;
 add_action( 'after_setup_theme', 'regals_way_setup' );
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function regals_way_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'regals_way_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'regals_way_content_width', 0 );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function regals_way_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'regals_way' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'regals_way' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'regals_way_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- */
-function regals_way_scripts() {
-	wp_enqueue_style( 'regals_way-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'regals_way-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'regals_way-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'regals_way_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-
-
-
-
-
-
-// Register Custom Taxonomy
-function issue_number() {
-
-	
-}
-add_action( 'init', 'issue_number', 0 );
-
