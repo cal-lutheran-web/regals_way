@@ -16,6 +16,45 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function regals_way_setup() {
+
+
+		// magazine issues taxonomy
+		register_taxonomy( 'issue', array( 'post' ), array(
+			'labels' => array(
+				'name' => _x( 'Issues', 'Taxonomy General Name', 'text_domain' ),
+				'singular_name' => _x( 'Issue', 'Taxonomy Singular Name', 'text_domain' )
+			),
+			'hierarchical' => false,
+			'public' => true,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+		));
+
+		// magazine themes taxonomy
+		register_taxonomy( 'theme', array( 'post' ), array(
+			'labels' => array(
+				'name' => _x( 'Themes', 'Taxonomy General Name', 'text_domain' ),
+				'singular_name' => _x( 'Theme', 'Taxonomy Singular Name', 'text_domain' )
+			),
+			'hierarchical' => false,
+			'public' => true,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+		));
+
+
+
+
+		
+
+
+
+
+
+
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -152,10 +191,16 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+
+
+
+
+
+
+// Register Custom Taxonomy
+function issue_number() {
+
+	
 }
+add_action( 'init', 'issue_number', 0 );
 
