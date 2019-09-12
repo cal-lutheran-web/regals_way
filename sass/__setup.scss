@@ -1,0 +1,108 @@
+/*!
+Theme Name: Regals Way
+Theme URI: http://underscores.me/
+Author: Cal Lutheran
+Author URI: http://underscores.me/
+Description: Standard Theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: regals_way
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Regals Way is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+
+:root {
+	--purple: #3b2360;
+	--purple-alt: #6a4c92;
+	--gold: #ffc222;
+	--gold-alt: #ffd589;
+
+	--blue1: #1e5989;
+	--blue2: #4796c1;
+	--blue3: #aadff1;
+
+	--green1: #00854f;
+	--green2: #31b27d;
+	--green3: #c5e4ce;
+
+	--red1: #e74645;
+	--red2: #f0885d;
+	--red3: #f4d5be;
+
+	--gray1: #7c7b7c;
+	--gray2: #bfc5c9;
+	--gray3: #dfebf1;
+
+	--tan1: #997f39;
+	--tan2: #d0bc81;
+	--tan3: #f2e8be;
+
+	--brown1: #974f25;
+	--brown2: #b36a38;
+	--brown3: #d38b59;
+
+	--graytxt: #333;
+	--offwhite: #fcf4e0;
+
+	--link-color: var(--blue2);
+	--body-color: var(--graytxt);
+
+	--dkblue2: #3c7fb9;
+	--medblue: #82c2de;
+	--ltblue2: #62aace;
+
+	--input-bg: #f5f5f5;
+	--input-border: #e0e0e0;
+
+
+
+	--body-font: "Raleway", Helvetica, Arial, sans-serif;
+	--heading-font: "Raleway", Helvetica, Arial, sans-serif;
+	--standout-font: "Tungsten", Impact, sans-serif;
+}
+
+
+
+
+
+
+/* RALEWAY */
+@font-face {
+	font-family: 'Raleway';
+	src: url("https://www.callutheran.edu/_resources/fonts/raleway-light-webfont.woff") format("woff");
+	font-style: normal;
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: url("https://www.callutheran.edu/_resources/fonts/raleway-regular-webfont.woff") format("woff");
+	font-style: normal;
+	font-weight: normal;	
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: url("https://www.callutheran.edu/_resources/fonts/raleway-bold-webfont.woff") format("woff");
+	font-style: normal;
+	font-weight: bold;
+}
+
+
+/* Tungsten */
+@font-face {
+	font-family: "Tungsten";
+	src: url("https://www.callutheran.edu/_resources/fonts/tungsten-medium-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}

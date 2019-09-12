@@ -1,0 +1,39 @@
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+.site-branding {
+	display: flex;
+	align-items: center;
+}
+
+
+.site-title {
+	display: inline-block;
+	padding: 20px;
+	background-color: var(--purple-alt);
+	margin: 0;
+
+}
+
+.site-title-mark {
+	display: block;
+	background-image: url('images/the-college-mark.svg');
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	box-sizing: content-box;
+	width: 300px;
+	height: 70px;
+	text-indent: -2000px;
+}
+
+.site-description {
+	font-family: var(--heading-font);
+	font-size: 2rem;
+	color: var(--purple);
+	margin: 0 0 0 1rem;
+	padding: 0;
+}

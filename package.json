@@ -1,0 +1,24 @@
+{
+  "name": "regals_way",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cal-lutheran-web/regals_way.git"
+  },
+  "author": "Cal Lutheran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cal-lutheran-web/regals_way/issues"
+  },
+  "homepage": "https://github.com/cal-lutheran-web/regals_way#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
