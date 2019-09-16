@@ -10,6 +10,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<aside class="theme-icon"></aside>
+
 	<header class="entry-header">
 		<?php 
 			if(is_singular()){
@@ -28,6 +30,17 @@
 		?>
 			
 		<?php
+
+			if(get_field('sidebar')['sidebar_content'] !== ''){
+			echo '
+				<div class="sidebar-box">
+					<h3>'.get_field('sidebar')['sidebar_title'].'</h3>
+					'.get_field('sidebar')['sidebar_content'].'
+				</div>
+			';
+		}
+
+
 		the_content( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
@@ -41,10 +54,8 @@
 			get_the_title()
 		) );
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'regals_way' ),
-			'after'  => '</div>',
-		) );
+
+		
 		?>
 	</div><!-- .entry-content -->
 

@@ -5,9 +5,61 @@
 	margin: 0 0 2rem 0;
 }
 
+.entry-content {
+	h2 {
+		font-family: var(--standout-font);
+		font-weight: normal;
+		font-size: 1.9em;
+		letter-spacing: 0.5px;
+	}
+
+	blockquote {
+		border-left: 4px solid var(--gray2);
+		margin: 1em 0 1em 1em;
+		padding: 0 3em 0 1em;
+		color: var(--gray1);
+		font-family: var(--serif-font);
+		font-size: 1.5em;
+		line-height: 1.5em;
+		position: relative;
+
+		&::after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 1.5em;
+			height: 1.5em;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	}
+}
 
 .post-intro {
 	font-family: var(--standout-font);
 	font-size: 2em;
 	line-height: 1.1em;
+	color: var(--gray1);
+}
+
+
+
+
+.sidebar-box {
+	background-color: var(--gray2);
+	float: right;
+	width: 300px;
+	padding: 1rem;
+	margin: 0 0 2rem 2rem;
+
+	h3 {
+		font-family: var(--standout-font);
+		font-size: 1.75em;
+		font-weight: normal;
+		margin: 0 0 1em 0;
+		padding-bottom: 0.25em;
+		border-bottom: 4px solid white;
+	}
 }

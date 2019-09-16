@@ -17,8 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<!-- <link rel="stylesheet" href="https://www.callutheran.edu/_resources/css/styles.css"> -->
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css">
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css<?php echo '?v='.rand(1,10000); ?>">
 
 	<?php wp_head(); ?>
 </head>

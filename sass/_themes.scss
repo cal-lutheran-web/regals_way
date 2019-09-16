@@ -1,7 +1,53 @@
+.theme-icon {
+	background-repeat: no-repeat;
+	background-size: 4em;
+	background-position: center center;
+	width: 5rem;
+	height: 5rem;
+
+	float: right;
+	margin: -2rem -2rem 2rem 2rem;
+
+	.theme-engagement & {
+		background-color: var(--blue2);
+		background-image: url('images/theme-icons/engagement-white.svg');
+	}
+}
+
+
 .theme-innovation {
 
 	h1 {
 		color: var(--gray1);
 	}
 
+}
+
+
+.theme-engagement {
+	h1 {
+		color: var(--blue2);
+	}
+
+	.entry-content {
+
+		h2 {
+			color: var(--blue2);
+		}
+
+		blockquote {
+			border-color: var(--blue2);
+
+			&::after {
+				background-image: url('images/theme-icons/quotes-blue.svg');
+			}
+		}
+
+	}
+
+	.sidebar-box {
+		h3 {
+			color: var(--blue2);
+		}
+	}
 }
