@@ -1,23 +1,33 @@
 .top-stories-grid {
 	display: grid;
-	grid-gap: 1em;
-	grid-template-columns: 50% 50%;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(4,1fr);
+	margin-bottom: 3rem;
 }
 
 .post-card {
 	display: grid;
+	align-content: start;
 	position: relative;
 	background-color: white;
 	padding: 1em;
 
 	header {
 		order: 2;
+		font-size: 1.25em;
+		line-height: 1.2em;
+		margin-top: 1rem;
+
+		a {
+			text-decoration: none;
+		}
 	}
 
 	.theme-icon {
+		box-sizing: content-box;
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 1rem;
+		right: 1rem;
 		z-index: 100;
 	}
 }
@@ -31,6 +41,6 @@
 	&::after {
 		content: '';
 		display: block;
-		padding-top: 30%;
+		padding-top: 50%;
 	}
 }

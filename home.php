@@ -38,6 +38,27 @@ get_header();
 				wp_reset_postdata();
 			?>
 		</section>
+
+
+		<?php
+			// get sections for each theme tag
+
+			$theme_terms = get_terms( 'theme', array(
+				'hide_empty' => false,
+			) );
+
+			foreach($theme_terms as $key=>$item){ ?>
+
+				<section class="theme-section site-content <?php echo 'theme-'.$item->slug; ?>">
+					<figure class="theme-icon"></figure>
+
+				</section>
+
+			<?php }
+			
+		?>
+
+		
 		
 	</main>
 

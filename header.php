@@ -1,15 +1,3 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Regals_Way
- */
-
-?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -38,14 +26,17 @@
 			
 		</div>
 
-		<nav id="site-navigation" class="row main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'regals_way' ); ?></button>
-			<?php
-			// wp_nav_menu( array(
-			// 	'theme_location' => 'menu-1',
-			// 	'menu_id'        => 'primary-menu',
-			// ) );
-			?>
+		<nav id="site-navigation" class="site-navigation">
+			<ul class="site-nav-list">
+				<?php
+					$theme_terms = get_terms( 'theme', array(
+						'hide_empty' => false,
+					) );
+					foreach($theme_terms as $key=>$item){
+						echo '<li class="theme-'.$item->slug.'"><a href="#" >'.$item->name.'</a></li>';
+					}
+				?>
+			<ul>
 		</nav>
 	</header>
 

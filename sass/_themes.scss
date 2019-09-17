@@ -13,34 +13,32 @@
 	}
 
 	.theme-engagement & {
-		background-color: var(--blue2);
+		background-color: var(--engagement);
 		background-image: url('images/theme-icons/engagement-white.svg');
 	}
 }
 
 
 .theme-innovation {
-
-	h1 {
-		color: var(--gray1);
+	h1, a {
+		color: var(--innovation);
 	}
-
 }
 
 
 .theme-engagement {
-	h1 {
-		color: var(--blue2);
+	h1, a {
+		color: var(--engagement);
 	}
 
 	.entry-content {
 
 		h2 {
-			color: var(--blue2);
+			color: var(--engagement);
 		}
 
 		blockquote {
-			border-color: var(--blue2);
+			border-color: var(--engagement);
 
 			&::after {
 				background-image: url('images/theme-icons/quotes-blue.svg');
@@ -51,7 +49,19 @@
 
 	.sidebar-box {
 		h3 {
-			color: var(--blue2);
+			color: var(--engagement);
 		}
+	}
+}
+
+.theme-exploration {
+	h1, a {
+		color: var(--exploration);
+	}
+}
+
+.theme-relevance {
+	h1, a {
+		color: var(--relevance);
 	}
 }
