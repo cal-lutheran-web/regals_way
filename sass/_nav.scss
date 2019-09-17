@@ -9,10 +9,11 @@
 		margin: 0;
 
 		> a {
-			font-family: var(--standout-font);
-			font-size: 2em;
-			text-decoration: none;
-			text-transform: uppercase;
+			display: block;
+			// font-family: var(--standout-font);
+			// font-size: 2em;
+			// text-decoration: none;
+			// text-transform: uppercase;
 		}
 	}
 }

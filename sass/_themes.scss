@@ -11,57 +11,47 @@
 		float: right;
 		margin: -2rem -2rem 2rem 2rem;
 	}
-
-	.theme-engagement & {
-		background-color: var(--engagement);
-		background-image: url('images/theme-icons/engagement-white.svg');
-	}
 }
 
 
-.theme-innovation {
-	h1, a {
-		color: var(--innovation);
-	}
-}
+@mixin theme-style($name){
+	.theme-#{$name} {
 
-
-.theme-engagement {
-	h1, a {
-		color: var(--engagement);
-	}
-
-	.entry-content {
-
-		h2 {
-			color: var(--engagement);
+		.theme-icon {
+			background-color: var(--#{$name});
+			background-image: url('images/theme-icons/#{$name}-white.svg');
 		}
 
-		blockquote {
-			border-color: var(--engagement);
+		h1, a {
+			color: var(--#{$name});
+		}
 
-			&::after {
-				background-image: url('images/theme-icons/quotes-blue.svg');
+		.entry-content {
+
+			h2 {
+				color: var(--#{$name});
+			}
+
+			blockquote {
+				border-color: var(--#{$name});
+
+				&::after {
+					background-image: url('images/theme-icons/quotes-blue.svg');
+				}
+			}
+
+		}
+
+		.sidebar-box {
+			h3 {
+				color: var(--#{$name});
 			}
 		}
-
-	}
-
-	.sidebar-box {
-		h3 {
-			color: var(--engagement);
-		}
 	}
 }
 
-.theme-exploration {
-	h1, a {
-		color: var(--exploration);
-	}
-}
 
-.theme-relevance {
-	h1, a {
-		color: var(--relevance);
-	}
-}
+@include theme-style(engagement);
+@include theme-style(innovation);
+@include theme-style(exploration);
+@include theme-style(relevance);
