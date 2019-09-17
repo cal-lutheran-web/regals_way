@@ -4,9 +4,13 @@
 	background-position: center center;
 	width: 5rem;
 	height: 5rem;
+	margin: 0;
+	padding: 0;
 
-	float: right;
-	margin: -2rem -2rem 2rem 2rem;
+	.entry-content & {
+		float: right;
+		margin: -2rem -2rem 2rem 2rem;
+	}
 
 	.theme-engagement & {
 		background-color: var(--blue2);
