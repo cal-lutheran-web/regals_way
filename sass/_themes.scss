@@ -7,10 +7,26 @@
 	margin: 0;
 	padding: 0;
 
+	&.size-small {
+		width: 3rem;
+		height: 3rem;
+		background-size: 2rem 2rem;
+	}
+
 	.entry-content & {
 		float: right;
 		margin: -2rem -2rem 2rem 2rem;
 	}
+}
+
+
+.theme-section-title {
+	font-family: var(--standout-font);
+	font-size: 2em;
+	text-transform: uppercase;
+	font-weight: normal;
+	line-height: 1em;
+	margin: 0;
 }
 
 
@@ -22,7 +38,7 @@
 			background-image: url('images/theme-icons/#{$name}-white.svg');
 		}
 
-		h1, a {
+		h1, h2, a, .theme-section-title {
 			color: var(--#{$name});
 		}
 

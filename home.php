@@ -1,17 +1,4 @@
 <?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Regals_Way
- */
-
 get_header();
 ?>
 
@@ -19,46 +6,88 @@ get_header();
 
 		<section class="top-stories-grid">
 			<?php
-				// The Query
-				$query = new WP_Query( array(
-					'post_type' => array('post')
-				) );
+				$theme_terms = get_terms('theme', array(
+					'hide_empty' => false,
+				));
 
+				foreach($theme_terms as $key=>$item){
+					$theme_top_posts = get_posts(array(
+						'posts_per_page' => 1,
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'theme',
+								'terms' => $item->term_id
+							)
+						)
+					));
 
-				// The Loop
-				while($query->have_posts() ) {
-					$query->the_post();
-					
-					get_template_part( 'template-parts/post-card');
-					
-				}
-			
+					foreach($theme_top_posts as $post){
+						setup_postdata($post);
+						get_template_part('template-parts/post-card');
+					}
 
-				// Restore original Post Data
+					wp_reset_postdata();
+				} 
 				wp_reset_postdata();
 			?>
+
+
+
+
+
+			
 		</section>
 
 
-		<?php
-			// get sections for each theme tag
+		<div class="page-wrapper ">
+			<div class="page-content site-content">
+				<?php
+					// get sections for each theme tag
 
-			$theme_terms = get_terms( 'theme', array(
-				'hide_empty' => false,
-			) );
+					foreach($theme_terms as $key=>$item){ ?>
 
-			foreach($theme_terms as $key=>$item){ ?>
+						<section class="posts-section <?php echo 'theme-'.$item->slug; ?>">
+							<header class="theme-section-title"><?php echo $item->name; ?></header>
 
-				<section class="theme-section site-content <?php echo 'theme-'.$item->slug; ?>">
-					<figure class="theme-icon"></figure>
+							<div class="theme-section-posts">
+							<?php
+								$theme_posts = get_posts(array(
+									'tax_query' => array(
+										array(
+											'taxonomy' => 'theme',
+											'terms' => $item->term_id
+										)
+									)
+								));
 
-				</section>
+								foreach($theme_posts as $post){ 
+									setup_postdata($post);
+									get_template_part('template-parts/post-card');
+								}
+							?>
+							</div>
 
-			<?php }
-			
-		?>
+						</section>
 
-		
+					<?php }
+
+					
+				?>
+			</div>
+
+			<aside class="page-sidebar site-content">
+				<div class="page-sidebar-box">
+					<ul>
+						<li><a href="#">Instagram</a></li>
+					</ul>
+				</div>
+				<div class="page-sidebar-box">
+					facts
+				</div>
+				<div class="page-sidebar-box">
+					about the school
+				</div>
+			</aside>
 		
 	</main>
 

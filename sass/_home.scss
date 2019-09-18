@@ -44,3 +44,13 @@
 		padding-top: 50%;
 	}
 }
+
+
+.posts-section {
+	margin-bottom: 3rem;
+}
+
+.theme-section-posts {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+}
