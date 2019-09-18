@@ -16,10 +16,11 @@
 
 	<header id="masthead" class="container site-header">
 		<div class="site-branding">
+			
 			<?php if(is_front_page() && is_home()){ ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-title-mark"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-title-mark"><span class="sr-only"><?php bloginfo( 'name' ); ?></span></a></h1>
 			<?php } else { ?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-title-mark"><?php bloginfo( 'name' ); ?></a></div>
+				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-title-mark"><span class="sr-only"><?php bloginfo( 'name' ); ?></span></a></div>
 			<?php } ?>
 
 			<p class="site-description"><?php bloginfo('description'); ?></p>
@@ -36,7 +37,7 @@
 						echo '<li class="theme-'.$item->slug.'"><a href="#" class="theme-icon"><span class="sr-only">'.$item->name.'</span></a></li>';
 					}
 				?>
-			<ul>
+			</ul>
 		</nav>
 	</header>
 
