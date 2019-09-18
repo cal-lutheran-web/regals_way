@@ -5,28 +5,35 @@
 }
 
 .site-branding {
-
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
 }
 
 
 .site-title {
-	display: inline-block;
-	padding: 20px;
-	background-color: var(--purple-alt);
 	margin: 0;
-
+	width: 100%;
+	flex: 0 0 300px;
 }
 
 .site-title-mark {
 	display: block;
+	background-color: var(--purple-alt);
 	background-image: url('images/the-college-mark.svg');
 	background-position: center center;
-	background-size: contain;
+	background-size: auto 4rem;
 	background-repeat: no-repeat;
-	box-sizing: content-box;
-	width: 300px;
-	height: 70px;
-	text-indent: -2000px;
+	width: 100%;
+	height: auto;
+
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: auto;
+		padding-top: 5rem;
+	}
 }
 
 .site-description {
@@ -34,7 +41,7 @@
 	font-size: 0.9rem;
 	line-height: 1.25em;
 	color: var(--purple);
-	margin: 10px 20px 0 20px;
+	margin: 0 20px 0 20px;
 	padding: 0;
-	max-width: 300px;
+	flex: 0 1 300px;
 }
