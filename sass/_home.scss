@@ -1,8 +1,12 @@
 .top-stories-grid {
 	display: grid;
 	grid-gap: 1rem;
-	grid-template-columns: repeat(4,1fr);
-	margin-bottom: 3rem;
+	margin: 0 1rem 3rem 1rem;
+
+	@media (min-width: 768px){
+		margin: 0 0 3rem 0;
+		grid-template-columns: repeat(4,1fr);
+	}
 }
 
 .post-card {
@@ -55,6 +59,10 @@
 
 .theme-section-posts {
 	display: grid;
-	grid-template-columns: repeat(3,1fr);
+	grid-template-columns: repeat(2,1fr);
 	grid-gap: 1rem;
+
+	@media (min-width: 768px){
+		grid-template-columns: repeat(3,1fr);
+	}
 }

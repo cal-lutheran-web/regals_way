@@ -15,7 +15,11 @@
 
 	.post & {
 		float: right;
-		margin: -2rem -2rem 2rem 2rem;
+		margin: -1rem -1rem 1rem 1rem;
+		
+		@media (min-width: 768px){
+			margin: -2rem -2rem 2rem 2rem;
+		}
 	}
 }
 
@@ -38,7 +42,7 @@
 			background-image: url('images/theme-icons/#{$name}-white.svg');
 		}
 
-		h1, h2, a, .theme-section-title {
+		h1, h2, h3, a, .theme-section-title {
 			color: var(--#{$name});
 		}
 
@@ -53,7 +57,6 @@
 
 				&::after {
 					color: var(--#{$name});
-					//background-image: url('images/theme-icons/quotes-blue.svg');
 				}
 			}
 

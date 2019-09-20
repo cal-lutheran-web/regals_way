@@ -22,23 +22,36 @@ body {
 
 
 .page-wrapper {
-	display: flex;
+	margin: 0 1rem;
+
+	@media (min-width: 768px){
+		margin: 0;
+		display: flex;
+	}
 }
 
 
 .site-content {
 	background-color: white;
-	padding: 2rem;
+	padding: 1rem;
 	margin-bottom: 3rem;
+
+	@media (min-width: 768px){
+		padding: 2rem;
+	}
 }
 
 
 .page-content {
-	flex: 0 0 75%;
+	@media (min-width: 768px){
+		flex: 0 0 75%;
+	}
 }
 
 .page-sidebar {
-	flex: 0 0 25%;
+	@media (min-width: 768px){
+		flex: 0 0 25%;
+	}
 }
 
 
