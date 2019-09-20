@@ -4,7 +4,7 @@ get_header();
 
 	<main id="main" class="container">
 
-		<section class="top-stories-grid">
+		<section class="top-stories-grid top-stories-boxed">
 			<?php
 				$theme_terms = get_terms('theme', array(
 					'hide_empty' => false,
@@ -76,21 +76,11 @@ get_header();
 			</div>
 
 			<aside class="page-sidebar site-content">
-				<div class="page-sidebar-box">
-					<ul>
-						<li><a href="#">Instagram</a></li>
-					</ul>
-				</div>
-				<div class="page-sidebar-box">
-					facts
-				</div>
-				<div class="page-sidebar-box">
-					about the school
-				</div>
+				<?php dynamic_sidebar( 'main-sidebar' ); ?>
 			</aside>
 		
 	</main>
 
 <?php
-get_sidebar();
+
 get_footer();
