@@ -11,6 +11,27 @@ function remove_menus(){
 add_action( 'admin_menu', 'remove_menus' );
 
 
+
+
+// Register Sidebars
+function sidebar() {
+
+	$args = array(
+		'id'            => 'main_sidebar',
+		'name'          => __( 'Main Sidebar', 'text_domain' ),
+	);
+	register_sidebar( $args );
+
+}
+add_action( 'widgets_init', 'sidebar' );
+
+
+
+
+
+
+
+
 if ( ! function_exists( 'regals_way_setup' ) ) :
 	function regals_way_setup() {
 
