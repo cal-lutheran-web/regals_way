@@ -34,7 +34,7 @@
 						'hide_empty' => false,
 					) );
 					foreach($theme_terms as $key=>$item){
-						echo '<li class="theme-'.$item->slug.'"><a href="#" class="theme-icon"><span class="sr-only">'.$item->name.'</span></a></li>';
+						echo '<li class="theme-'.$item->slug.'"><a href="'.get_bloginfo('url').'/theme/'.$item->slug.'" class="theme-icon"><span class="sr-only">'.$item->name.'</span></a></li>';
 					}
 				?>
 			</ul>
