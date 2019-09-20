@@ -14,6 +14,7 @@
 	}
 
 	blockquote {
+		clear: both;
 		border-left: 4px solid var(--gray2);
 		margin: 1em 0 1em 1em;
 		padding: 0 3em 0 1em;
@@ -62,4 +63,62 @@
 		padding-bottom: 0.25em;
 		border-bottom: 4px solid white;
 	}
+}
+
+
+
+
+// image gallery stuff
+
+.gallery {
+	display: grid;
+	align-items: stretch;
+	grid-gap: 1rem;
+
+	@for $i from 1 through 9 {
+		&.gallery-columns-#{$i} { grid-template-columns: repeat(#{$i},1fr); }
+	}
+}
+
+.gallery-item {
+	margin: 0;
+	padding: 0;
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+
+
+.wp-caption {
+	background-color: var(--gray2);
+	padding: 0.5rem;
+	margin: 0;
+
+	> img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	&.alignright {
+		float: right;
+		margin: 0 0 1rem 1rem;
+	}
+
+	&.alignleft {
+		float: left;
+		margin: 0 1rem 1rem 0;
+	}
+
+	&.aligncenter {
+		margin: 1rem auto;
+	}
+}
+
+.wp-caption-text {
+	margin-top: 0.5rem;
+	font-weight: bold;
 }
