@@ -25,13 +25,14 @@
 		position: relative;
 
 		&::after {
-			content: '';
+			content: '”';
+			font-family: var(--serif-font);
 			display: inline-block;
 			position: absolute;
+			font-size: 2em;
+			line-height: 1em;
 			right: 0;
 			bottom: 0;
-			width: 1.5em;
-			height: 1.5em;
 			background-size: contain;
 			background-repeat: no-repeat;
 		}
