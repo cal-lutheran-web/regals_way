@@ -29,6 +29,7 @@ body {
 .site-content {
 	background-color: white;
 	padding: 2rem;
+	margin-bottom: 3rem;
 }
 
 
@@ -41,6 +42,15 @@ body {
 }
 
 
+.site-footer {
+	background-color: var(--purple);
+	padding: 2rem 0;
+}
+
+
+
 .sr-only {
 	display: none;
 }
+
+
