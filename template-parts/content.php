@@ -1,16 +1,16 @@
 <?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Regals_Way
- */
+
+	$post_tags = '';
+	$theme_tags = wp_get_post_terms($post->ID,'theme');
+
+	foreach($theme_tags as $key=>$item){
+		$post_tags = $item->slug;
+	}
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<aside class="theme-icon"></aside>
+	<aside><a href="<?php echo get_bloginfo('url').'/theme/'.$post_tags; ?>" class="theme-icon" title=""></a></aside>
 
 	<header class="entry-header">
 		<?php 
