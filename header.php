@@ -1,3 +1,9 @@
+<?php
+	if($_SERVER['SERVER_NAME'] == 'clu-wp.local'){
+		echo '<!-- '.get_page_template(). ' -->';
+	}
+?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
