@@ -26,10 +26,10 @@
 
 .theme-section-title {
 	font-family: var(--standout-font);
-	font-size: 2em;
+	font-size: rem(32);
 	text-transform: uppercase;
 	font-weight: normal;
-	line-height: 1em;
+	line-height: 1.1;
 	margin: 0;
 }
 
