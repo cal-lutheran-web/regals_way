@@ -1,3 +1,14 @@
+// sass functions and mixins
+
+@function em($size){
+	@return #{$size/16}em;
+}
+
+@function rem($size){
+	@return #{$size/16}em;
+}
+
+
 @import '_setup.scss';
 @import '_themes';
 @import 'base-styles';
