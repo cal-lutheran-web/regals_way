@@ -1,6 +1,4 @@
-<?php
-get_header();
-?>
+<?php get_header(); ?>
 
 	<main id="main" class="container">
 
@@ -39,46 +37,58 @@ get_header();
 		</section>
 
 
-		<div class="page-wrapper ">
-			<div class="page-content site-content">
-				<?php
-					// get sections for each theme tag
+		<?php
+			// get sections for each theme tag
 
-					foreach($theme_terms as $key=>$item){ ?>
+			foreach($theme_terms as $key=>$item){ ?>
 
-						<section class="posts-section <?php echo 'theme-'.$item->slug; ?>">
-							<header class="theme-section-title"><a href="theme/<?php echo $item->slug; ?>"><?php echo $item->name; ?></a></header>
+				<section class="site-content posts-section <?php echo 'theme-'.$item->slug; ?>">
+					<header class="theme-section-title">
+						<figure class="theme-icon"></figure>
+						<a href="theme/<?php echo $item->slug; ?>"><?php echo $item->name; ?></a>
+					</header>
 
-							<div class="theme-section-posts">
-							<?php
-								$theme_posts = get_posts(array(
-									'tax_query' => array(
-										array(
-											'taxonomy' => 'theme',
-											'terms' => $item->term_id
-										)
-									)
-								));
+					<div class="theme-section-posts">
+					<?php
+						$theme_posts = get_posts(array(
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'theme',
+									'terms' => $item->term_id
+								)
+							)
+						));
 
-								foreach($theme_posts as $post){ 
-									setup_postdata($post);
-									$hide_theme_icon = true;
-									include('template-parts/post-card.php');
-								}
-							?>
-							</div>
+						foreach($theme_posts as $post){ 
+							setup_postdata($post);
+							$hide_theme_icon = true;
+							include('template-parts/post-card.php');
+						}
+					?>
+					</div>
 
-						</section>
+				</section>
 
-					<?php }
+		<?php } ?>
 
-					
-				?>
-			</div>
+		<section class="site-content news-section">
+			<header>
+				<h2>News from the College of Arts & Sciences</h2>
+			</header>
+			
+			<?php
+				$news_data = get_posts(array(
+					'post_type' => 'news',
+					'posts_per_page' => 1
+				));
 
-			<aside class="page-sidebar site-content">
-				<?php dynamic_sidebar( 'main-sidebar' ); ?>
-			</aside>
+				foreach($news_data as $post){
+					setup_postdata($post);
+
+					the_content();
+				}
+			?>
+		</section>
 		
 	</main>
 
