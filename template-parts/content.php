@@ -57,9 +57,13 @@
 
 		
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer">
-
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+		<?php
+			$issue_data = wp_get_post_terms($post->ID,'issue')[0];
+			
+			echo '<p>Appeared in the <a href="'.get_bloginfo('url').'/issue/'.$issue_data->slug.'">'.$issue_data->name.'</a> issue.</p>';
+		?>
+	</footer>
+</article>
