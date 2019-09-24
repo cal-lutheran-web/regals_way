@@ -5,7 +5,12 @@
 
 	@media (min-width: 768px){
 		margin: 0 0 3rem 0;
-		grid-template-columns: repeat(4,1fr);
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(3, 1fr);
+
+		> article:nth-child(1) {
+			grid-row: 1 / 4;
+		}
 	}
 }
 
@@ -31,6 +36,23 @@
 		top: 1rem;
 		right: 1rem;
 		z-index: 100;
+	}
+
+	@media (min-width: 768px){
+		.top-stories-grid &:nth-child(n+2) {
+			grid-template-columns: 80px 1fr;
+			grid-column-gap: 1rem;
+
+			header {
+				margin-top: 0;
+			}
+
+			.post-card-image {
+				grid-column: 1 / 2;
+
+				&::after { padding-top: 100%; }
+			}
+		}
 	}
 
 	.top-stories-boxed & {
@@ -66,6 +88,6 @@
 	grid-gap: 1rem;
 
 	@media (min-width: 768px){
-		grid-template-columns: repeat(3,1fr);
+		grid-template-columns: repeat(4,1fr);
 	}
 }
