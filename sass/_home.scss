@@ -24,10 +24,6 @@
 		font-size: rem(20);
 		line-height: 1.1;
 		margin-top: 1rem;
-
-		a {
-			text-decoration: none;
-		}
 	}
 
 	.theme-icon {
@@ -89,5 +85,19 @@
 
 	@media (min-width: 768px){
 		grid-template-columns: repeat(4,1fr);
+	}
+}
+
+
+
+
+// news section
+
+.news-section {
+	header h2 {
+		margin: 0 0 2rem 0;
+		color: var(--purple);
+		font-weight: normal;
+		font-size: rem(48);
 	}
 }
