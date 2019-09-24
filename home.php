@@ -47,7 +47,7 @@ get_header();
 					foreach($theme_terms as $key=>$item){ ?>
 
 						<section class="posts-section <?php echo 'theme-'.$item->slug; ?>">
-							<header class="theme-section-title"><?php echo $item->name; ?></header>
+							<header class="theme-section-title"><a href="theme/<?php echo $item->slug; ?>"><?php echo $item->name; ?></a></header>
 
 							<div class="theme-section-posts">
 							<?php
@@ -62,7 +62,8 @@ get_header();
 
 								foreach($theme_posts as $post){ 
 									setup_postdata($post);
-									get_template_part('template-parts/post-card');
+									$hide_theme_icon = true;
+									include('template-parts/post-card.php');
 								}
 							?>
 							</div>
