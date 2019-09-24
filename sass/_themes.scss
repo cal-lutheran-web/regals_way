@@ -30,19 +30,35 @@
 	text-transform: uppercase;
 	font-weight: normal;
 	line-height: 1.1;
-	margin: 0;
+	margin: 0 0 2rem 0;
+
+	> a::after {
+		content: ' ➜';
+		display: inline;
+	}
+
+	.theme-icon {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 1rem;
+	}
 }
 
 
 @mixin theme-style($name){
 	.theme-#{$name} {
 
+		&.posts-section {
+			border-top: 4px solid var(--#{$name});
+			border-bottom: 4px solid var(--#{$name});
+		}
+
 		.theme-icon {
 			background-color: var(--#{$name});
 			background-image: url('images/theme-icons/#{$name}-white.svg');
 		}
 
-		h1, h2, h3, a, .theme-section-title {
+		h1, h2, h3, .theme-section-title {
 			color: var(--#{$name});
 		}
 
