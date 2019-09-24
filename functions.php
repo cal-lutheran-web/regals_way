@@ -5,8 +5,8 @@
 function remove_menus(){
 	remove_menu_page('edit-comments.php');
 
-	remove_submenu_page('edit.php','edit-tags.php?taxonomy=post_tag');
-	remove_submenu_page('edit.php','edit-tags.php?taxonomy=category');
+	//remove_submenu_page('edit.php?post_type=quotes','edit-tags.php?taxonomy=post_tag');
+	//remove_submenu_page('edit.php?post_type=quotes','edit-tags.php?taxonomy=category');
 }
 add_action( 'admin_menu', 'remove_menus' );
 
@@ -71,6 +71,30 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'menu_icon' => 'dashicons-format-quote',
 			'supports' => array('title', 'thumbnail'),
 			'taxonomies' => array( 'issue', 'theme' ),
+			'hierarchical'          => false,
+			'public'                => true,
+			'show_ui'               => true,
+			'show_in_menu'          => true,
+			'menu_position'         => 5,
+			'show_in_admin_bar'     => true,
+			'show_in_nav_menus'     => true,
+			'can_export'            => true,
+			'has_archive'           => true,
+			'exclude_from_search'   => false,
+			'publicly_queryable'    => true,
+			'capability_type'       => 'post',
+		) );
+
+
+		// news posts type
+		register_post_type( 'news', array(
+			'labels' => array(
+				'name' => _x( 'News', 'Post Type General Name', 'text_domain' ),
+				'singular_name' => _x( 'News Item', 'Post Type Singular Name', 'text_domain' ),
+			),
+			'menu_icon' => 'dashicons-text-page',
+			'supports' => array('title', 'thumbnail'),
+			'taxonomies' => array( 'issue', 'theme', 'post_tag' ),
 			'hierarchical'          => false,
 			'public'                => true,
 			'show_ui'               => true,
