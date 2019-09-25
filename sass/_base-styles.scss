@@ -66,6 +66,18 @@ a {
 .site-footer {
 	background-color: var(--purple);
 	padding: 2rem 0;
+	color: white;
+	text-align: center;
+
+	a {
+		color: var(--gold);
+	}
+}
+
+.school-mark {
+	width: 100%;
+	height: auto;
+	max-width: 300px;
 }
 
 

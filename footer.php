@@ -2,7 +2,8 @@
 
 	<footer class="site-footer">
 		<div class="container site-info">
-			<a href="https://www.callutheran.edu"><img src="https://www.callutheran.edu/_resources/img/logos/primary-reverse.svg" /></a>
+			<a href="https://www.callutheran.edu"><img src="<?php bloginfo('template_url'); ?>/images/coas-reverse.svg" class="school-mark" /></a>
+			<p>&copy;<?php echo date('Y'); ?> <a href="https://www.callutheran.edu">California Lutheran University</a></p>
 		</div>
 	</footer>
 
