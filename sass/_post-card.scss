@@ -8,15 +8,15 @@
 
 	header {
 		order: 2;
-		font-size: rem(20);
-		line-height: 1.1;
+		font-size: rem(16);
+		line-height: 1.25;
 	}
 
 	.theme-icon {
 		box-sizing: content-box;
 		position: absolute;
-		top: 1rem;
-		right: 1rem;
+		top: 0;
+		right: 0;
 		z-index: 100;
 	}
 
@@ -25,6 +25,12 @@
 
 		header {
 			margin-top: 1rem;
+			padding-right: 0;
+		}
+
+		.theme-icon {
+			top: 1rem;
+			right: 1rem;
 		}
 
 		.top-stories-grid &:nth-child(n+2) {
@@ -33,6 +39,8 @@
 
 			header {
 				margin-top: 0;
+				font-style: rem(21);
+				line-height: 1.1;
 			}
 
 			.post-card-image {
@@ -46,6 +54,8 @@
 	.top-stories-boxed & {
 		padding: 1em;
 		background-color: white;
+
+		header { padding-right: 3rem; }
 	}
 }
 
