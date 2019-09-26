@@ -41,7 +41,7 @@
 		position: relative;
 
 		&::after {
-			content: '”';
+			content: '❞';
 			font-family: var(--serif-font);
 			display: inline-block;
 			position: absolute;
@@ -161,4 +161,11 @@
 .wp-caption-text {
 	margin-top: 0.5rem;
 	font-weight: bold;
+}
+
+
+.entry-footer {
+	border-top: 4px solid var(--gray2);
+	margin-top: 2rem;
+	padding-top: 1rem;
 }
