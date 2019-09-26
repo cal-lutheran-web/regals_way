@@ -21,7 +21,7 @@
 
 .theme-section-posts {
 	display: grid;
-	grid-template-columns: repeat(2,1fr);
+	grid-template-columns: 1fr;
 	grid-gap: 1rem;
 
 	@media (min-width: 768px){
@@ -39,6 +39,14 @@
 		margin: 0 0 2rem 0;
 		color: var(--purple);
 		font-weight: normal;
-		font-size: rem(48);
+		font-size: rem(24);
 	}
+
+	@media (min-width: 768px){
+		header h2 { font-size: rem(48); }
+	}
+}
+
+.news-content {
+	columns: 3 auto;
 }

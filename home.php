@@ -93,7 +93,8 @@ $issue_terms = get_terms('issue', array(
 			<header>
 				<h2>News from the College of Arts & Sciences</h2>
 			</header>
-
+			
+			<article class="news-content">
 			<?php
 				$news_data = get_posts(array(
 					'post_type' => 'news',
@@ -106,6 +107,7 @@ $issue_terms = get_terms('issue', array(
 					the_content();
 				}
 			?>
+			</article>
 		</section>
 		
 	</main>
