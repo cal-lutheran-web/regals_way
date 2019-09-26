@@ -62,8 +62,10 @@
 	<footer class="entry-footer">
 		<?php
 			$issue_data = wp_get_post_terms($post->ID,'issue')[0];
-			
-			echo '<p>Appeared in the <a href="'.get_bloginfo('url').'/issue/'.$issue_data->slug.'">'.$issue_data->name.'</a> issue.</p>';
+
+			if(!empty($issue_data->slug)){
+				echo '<p>Appeared in the <a href="'.get_bloginfo('url').'/issue/'.$issue_data->slug.'">'.$issue_data->name.'</a> issue.</p>';
+			}
 		?>
 	</footer>
 </article>
