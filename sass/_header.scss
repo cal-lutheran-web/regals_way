@@ -8,6 +8,8 @@
 }
 
 .site-branding {
+	order: 1;
+
 	@media (min-width: 768px){
 		display: flex;
 		align-items: center;
@@ -52,5 +54,61 @@
 
 	@media (min-width: 768px){
 		margin: 0 20px 0 20px;
+	}
+}
+
+
+
+// social media
+
+.social-media-links {
+	order: 3;
+	align-self: center;
+	margin: 1rem 0 0 0;
+
+	@media (min-width: 768px){
+		order: 2;
+		margin: 0 1rem;
+	}
+}
+
+
+.social-media-list {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	> li {
+		padding: 0;
+		margin: 0;
+		line-height: 1;
+	}
+}
+
+.social-media-icon {
+	display: block;
+	padding: 0.25rem;
+	border-radius: 10px;
+
+	> svg {
+		display: block;
+		width: 2rem;
+		height: 2rem;
+
+		path {
+			fill: var(--purple-alt);
+		}
+	}
+
+	&:hover {
+		background: var(--purple-alt);
+
+		> svg { 
+			path {
+				fill: var(--gold);
+			}
+		}
 	}
 }

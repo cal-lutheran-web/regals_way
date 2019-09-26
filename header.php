@@ -45,6 +45,12 @@
 				?>
 			</ul>
 		</nav>
+
+		<nav id="social-media-links" class="social-media-links">
+			<ul class="social-media-list">
+				<li><a href="https://www.instagram.com/clu_coas/" title="Instagram" class="social-media-icon sm-instagram"><?php include 'images/social-media/instagram.svg'; ?></a></li>
+			</ul>
+		</nav>
 	</header>
 
 
