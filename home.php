@@ -1,13 +1,20 @@
-<?php get_header(); ?>
+<?php get_header(); 
+
+$theme_terms = get_terms('theme', array(
+	'hide_empty' => false,
+));
+
+
+$issue_terms = get_terms('issue', array(
+	'hide_empty' => false,
+));
+
+?>
 
 	<main id="main" class="container">
 
 		<section class="top-stories-grid top-stories-boxed">
 			<?php
-				$theme_terms = get_terms('theme', array(
-					'hide_empty' => false,
-				));
-
 				foreach($theme_terms as $key=>$item){
 					$theme_top_posts = get_posts(array(
 						'posts_per_page' => 1,
@@ -28,14 +35,25 @@
 				} 
 				wp_reset_postdata();
 			?>
-
-
-
-
-
-			
 		</section>
 
+		<section class="quotes-section">
+			<header>
+				<h2><?php echo $issue_terms[0]->description; ?></h2>
+			</header>
+
+			<?php
+				$quote_posts = get_posts(array(
+					'post_type' => 'quotes',
+					'posts_per_page' => 4
+				));
+
+				foreach($quote_posts as $post){
+					setup_postdata($post);
+					get_template_part('template-parts/quote-snippet');
+				}
+			?>
+		</section>
 
 		<?php
 			// get sections for each theme tag
@@ -75,7 +93,7 @@
 			<header>
 				<h2>News from the College of Arts & Sciences</h2>
 			</header>
-			
+
 			<?php
 				$news_data = get_posts(array(
 					'post_type' => 'news',
