@@ -14,65 +14,6 @@
 	}
 }
 
-.post-card {
-	display: grid;
-	align-content: start;
-	position: relative;
-
-	header {
-		order: 2;
-		font-size: rem(20);
-		line-height: 1.1;
-		margin-top: 1rem;
-	}
-
-	.theme-icon {
-		box-sizing: content-box;
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		z-index: 100;
-	}
-
-	@media (min-width: 768px){
-		.top-stories-grid &:nth-child(n+2) {
-			grid-template-columns: 80px 1fr;
-			grid-column-gap: 1rem;
-
-			header {
-				margin-top: 0;
-			}
-
-			.post-card-image {
-				grid-column: 1 / 2;
-
-				&::after { padding-top: 100%; }
-			}
-		}
-	}
-
-	.top-stories-boxed & {
-		padding: 1em;
-		background-color: white;
-	}
-}
-
-.post-card-image {
-	margin: 0;
-	padding: 0;
-	background-color: var(--gray3);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	order: 1;
-	
-	&::after {
-		content: '';
-		display: block;
-		padding-top: 50%;
-	}
-}
-
 
 .posts-section {
 	margin-bottom: 3rem;
