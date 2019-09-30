@@ -1,5 +1,12 @@
 .page-header {
 	margin-bottom: 2rem;
+
+	h1 {
+		font-family: var(--standout-font);
+		font-size: rem(48);
+		font-weight: normal;
+		margin: 0;
+	}
 }
 
 
