@@ -53,6 +53,11 @@
 			background-repeat: no-repeat;
 		}
 	}
+
+	hr {
+		border: 4px solid var(--gray2);
+		margin: 1rem 0;
+	}
 }
 
 .post-intro {
@@ -138,23 +143,21 @@
 		height: auto;
 		display: block;
 	}
+}
 
-	@media (min-width: 768px){
+@media (min-width: 768px){
+	.alignright {
+		float: right;
+		margin: 0 0 1rem 1rem;
+	}
 
-		&.alignright {
-			float: right;
-			margin: 0 0 1rem 1rem;
-		}
+	.alignleft {
+		float: left;
+		margin: 0 1rem 1rem 0;
+	}
 
-		&.alignleft {
-			float: left;
-			margin: 0 1rem 1rem 0;
-		}
-
-		&.aligncenter {
-			margin: 1rem auto;
-		}
-
+	.aligncenter {
+		margin: 1rem auto;
 	}
 }
 
