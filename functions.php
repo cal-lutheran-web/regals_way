@@ -155,3 +155,50 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 	}
 endif;
 add_action( 'after_setup_theme', 'regals_way_setup' );
+
+
+
+// custom display functions
+
+function getRandomQuote(){
+	$quote_posts = new WP_Query(array(
+		'post_type' => 'quotes',
+		'posts_per_page' => 1,
+		'orderby' => 'rand'
+	));
+
+	while($quote_posts->have_posts()){
+		$quote_posts->the_post();
+		get_template_part('template-parts/quote-snippet');
+	}
+
+	wp_reset_postdata();
+}
+
+
+function getTopThemePosts(){
+	$theme_terms = get_terms('theme', array(
+		'hide_empty' => false,
+	));
+
+	foreach($theme_terms as $key=>$item){
+		$theme_top_posts = new WP_Query(array(
+			'post_type' => 'post',
+			'posts_per_page' => 1,
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'theme',
+					'terms' => $item->term_id
+				)
+			)
+		));
+
+		while ( $theme_top_posts->have_posts() ) {
+			$theme_top_posts->the_post();
+			get_template_part('template-parts/post-card');
+		};
+
+		wp_reset_postdata();
+	} 
+	wp_reset_postdata();
+}

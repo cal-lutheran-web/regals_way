@@ -14,27 +14,7 @@ $issue_terms = get_terms('issue', array(
 	<main id="main" class="container">
 
 		<section class="top-stories-grid top-stories-boxed">
-			<?php
-				foreach($theme_terms as $key=>$item){
-					$theme_top_posts = get_posts(array(
-						'posts_per_page' => 1,
-						'tax_query' => array(
-							array(
-								'taxonomy' => 'theme',
-								'terms' => $item->term_id
-							)
-						)
-					));
-
-					foreach($theme_top_posts as $post){
-						setup_postdata($post);
-						get_template_part('template-parts/post-card');
-					}
-
-					wp_reset_postdata();
-				} 
-				wp_reset_postdata();
-			?>
+			<?php getTopThemePosts(); ?>
 		</section>
 
 		<section class="quotes-section">
@@ -42,17 +22,7 @@ $issue_terms = get_terms('issue', array(
 				<h2><?php echo $issue_terms[0]->description; ?></h2>
 			</header>
 
-			<?php
-				$quote_posts = get_posts(array(
-					'post_type' => 'quotes',
-					'posts_per_page' => 4
-				));
-
-				foreach($quote_posts as $post){
-					setup_postdata($post);
-					get_template_part('template-parts/quote-snippet');
-				}
-			?>
+			<?php getRandomQuote(); ?>
 		</section>
 
 		<?php

@@ -23,36 +23,45 @@ $news_posts = get_posts(array(
 	)
 ));
 
+$issue_terms = get_terms('issue', array(
+	'hide_empty' => false,
+));
+
 
 get_header(); 
 
+while(have_posts()){
+	the_post();
+
+echo 'hi';
+}
+
 ?>
 
-	<main id="main" class="container site-content">
+	<main id="main" class="container">
 	
 		<header class="page-header">
-			<h1><?php the_title(); ?></h1>
+			<h1><?php echo single_cat_title(); ?></h1>
 		</header>
 
-		<section class="theme-section-posts">
-		<?php
-
-			foreach($theme_posts as $post){
-				setup_postdata($post);
-				
-				get_template_part('template-parts/post-card');
-			}
-
-			wp_reset_postdata();
-
-		?>
+		<section class="site-content theme-section-posts">
+			<?php getTopThemePosts(); ?>
 		</section>
 
-		<section class="quotes-section">
-			quotes
+		<section class="site-content quotes-section">
+			<header>
+				<h2><?php echo $issue_terms[0]->description; ?></h2>
+			</header>
+
+			<?php getRandomQuote(); ?>
 		</section>
 
-		<section class="news-section">
+		<section class="site-content news-section">
+			<header>
+				<h2>News from the College of Arts & Sciences</h2>
+			</header>
+			
+			<article class="news-content">
 			<?php
 
 				foreach($news_posts as $post){
@@ -64,6 +73,7 @@ get_header();
 				wp_reset_postdata();
 
 			?>
+			</article>
 		</section>
 
 
