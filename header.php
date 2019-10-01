@@ -9,6 +9,21 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<?php if(is_single()){ ?>
+		<meta property="og:url" content="<?php the_permalink(); ?>">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="<?php the_title(); ?>">
+		<meta property="og:description" content="<?php echo get_the_excerpt(); ?>">
+		<?php if(has_post_thumbnail( $post->ID )){ 
+			$featured_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID ), 'large' )	
+		?>
+			<meta property="og:image" content="<?php echo $featured_img[0]; ?>">
+			<meta property="og:image:width" content="<?php echo $featured_img[1]; ?>">
+			<meta property="og:image:height" content="<?php echo $featured_img[2]; ?>">
+		<?php } ?>
+	<?php } ?>
+
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css<?php echo '?v='.rand(1,10000); ?>">
