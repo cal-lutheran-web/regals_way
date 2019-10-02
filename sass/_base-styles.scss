@@ -82,6 +82,24 @@ a {
 
 
 
+.btn {
+	border: 0;
+	background: var(--green1);
+	color: white;
+	padding: 0.5rem 1.5rem;
+	border-radius: 0.5rem;
+	font-size: rem(18);
+	font-weight: bold;
+	line-height: 1;
+	margin: 1rem auto;
+
+	&:hover {
+		background: var(--green2);
+	}
+}
+
+
+
 .sr-only {
 	display: none;
 }
