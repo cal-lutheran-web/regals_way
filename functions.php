@@ -1,14 +1,32 @@
 <?php
 
 
+include 'functions/custom-fields.php';
+
+
 // remove native categories and tags from admin menu, we will do our own
 function remove_menus(){
 	remove_menu_page('edit-comments.php');
 
-	//remove_submenu_page('edit.php?post_type=quotes','edit-tags.php?taxonomy=post_tag');
-	//remove_submenu_page('edit.php?post_type=quotes','edit-tags.php?taxonomy=category');
+	remove_submenu_page('edit.php','edit-tags.php?taxonomy=post_tag');
+	remove_submenu_page('edit.php','edit-tags.php?taxonomy=category');
 }
 add_action( 'admin_menu', 'remove_menus' );
+
+
+
+// hide certain postboxes
+function my_remove_meta_boxes() {
+	remove_meta_box( 'tagsdiv-theme', 'post', 'side' );
+	remove_meta_box( 'tagsdiv-issue', 'post', 'side' );
+
+	remove_meta_box( 'tagsdiv-issue', 'quotes', 'side' );
+	remove_meta_box( 'tagsdiv-issue', 'news', 'side' );
+
+	remove_meta_box( 'tagsdiv-post_tag', 'post', 'side' );
+	remove_meta_box( 'categorydiv', 'post', 'side' );
+}
+add_action( 'admin_menu', 'my_remove_meta_boxes' );
 
 
 
@@ -46,10 +64,11 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'show_ui' => true,
 			'show_admin_column' => true,
 			'show_in_nav_menus' => true,
+			'show_tagcloud' => false
 		));
 
 		// magazine themes taxonomy
-		register_taxonomy( 'theme', array( 'post', 'quotes' ), array(
+		register_taxonomy( 'theme', array( 'post' ), array(
 			'labels' => array(
 				'name' => _x( 'Themes', 'Taxonomy General Name', 'text_domain' ),
 				'singular_name' => _x( 'Theme', 'Taxonomy Singular Name', 'text_domain' )
@@ -111,40 +130,9 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 
 
 
-
-		
-
-
-
-
-
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
-
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
+		// add theme support
 		add_theme_support( 'title-tag' );
-
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
 		add_theme_support( 'post-thumbnails' );
-
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'regals_way' ),
-		) );
-
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
 		add_theme_support( 'html5', array(
 			'search-form',
 			'comment-form',
@@ -152,6 +140,12 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'gallery',
 			'caption',
 		) );
+
+		// navigation menus
+		register_nav_menus( array(
+			'menu-1' => esc_html__( 'Primary', 'regals_way' ),
+		) );
+		
 	}
 endif;
 add_action( 'after_setup_theme', 'regals_way_setup' );
