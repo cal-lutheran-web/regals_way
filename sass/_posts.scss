@@ -10,6 +10,12 @@
 }
 
 .entry-content {
+	h1,h2,h3,h4,h5,h6 {
+		&:nth-child(1){
+			margin-top: 0;
+		}
+	}
+
 	h2 {
 		font-family: var(--standout-font);
 		font-weight: normal;
@@ -54,10 +60,18 @@
 		}
 	}
 
-	hr {
-		border: 4px solid var(--gray2);
-		margin: 1rem 0;
+	ul {
+		list-style: square;
+		padding-left: 1rem;
+		break-inside: avoid;
+		break-before: avoid;
+		clear: both;
 	}
+}
+
+hr {
+	border: 2px solid var(--gray2);
+	margin: 2rem 0;
 }
 
 .post-intro {
@@ -171,4 +185,39 @@
 	border-top: 4px solid var(--gray2);
 	margin-top: 2rem;
 	padding-top: 1rem;
+}
+
+
+
+// issue index
+
+.issue-top-posts {
+	margin-bottom: 3rem;
+}
+
+
+
+
+.entry-hide {
+	overflow: hidden;
+	height: 12em;
+	position: relative;
+
+	&::after {
+		display: block;
+		content: '';
+		height: 5em;
+		width: 100%;
+		bottom: 0;
+		background-image: linear-gradient(to top, white 0%, rgba(255,255,255,0) 100%);
+		position: absolute;
+	}
+}
+
+.btn-toggle {
+	display: none;
+}
+
+.entry-hide + .btn-toggle {
+	display: inline-block;
 }
