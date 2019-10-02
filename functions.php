@@ -169,6 +169,15 @@ function getRandomQuote(){
 
 	while($quote_posts->have_posts()){
 		$quote_posts->the_post();
+
+		$term = wp_get_post_terms($quote_posts->post->ID,'issue')[0];
+
+		echo '
+			<header>
+				<h2>'.$term->description.'</h2>
+			</header>
+		';
+
 		get_template_part('template-parts/quote-snippet');
 	}
 
