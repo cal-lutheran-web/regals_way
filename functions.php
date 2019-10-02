@@ -111,7 +111,7 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 				'name' => _x( 'News', 'Post Type General Name', 'text_domain' ),
 				'singular_name' => _x( 'News Item', 'Post Type Singular Name', 'text_domain' ),
 			),
-			'menu_icon' => 'dashicons-text-page',
+			'menu_icon' => 'dashicons-media-text',
 			'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
 			'taxonomies' => array( 'issue' ),
 			'hierarchical'          => false,
