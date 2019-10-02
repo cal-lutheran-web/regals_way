@@ -27,14 +27,23 @@ $issue_terms = get_terms('issue', array(
 	'hide_empty' => false,
 ));
 
+$quote_posts = get_posts(array(
+	'post_type' => 'quotes',
+	'posts_per_page' => -1,
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'issue',
+			'field' => 'slug',
+			'terms' => $current_issue->slug
+		)
+	)
+));
+
+
+
 
 get_header(); 
 
-while(have_posts()){
-	the_post();
-
-echo 'hi';
-}
 
 ?>
 
@@ -44,7 +53,7 @@ echo 'hi';
 			<h1><?php echo single_cat_title(); ?></h1>
 		</header>
 
-		<section class="site-content theme-section-posts">
+		<section class="issue-top-posts theme-section-posts top-stories-boxed">
 			<?php getTopThemePosts(); ?>
 		</section>
 
@@ -53,15 +62,23 @@ echo 'hi';
 				<h2><?php echo $issue_terms[0]->description; ?></h2>
 			</header>
 
-			<?php getRandomQuote(); ?>
+			<?php
+				foreach($quote_posts as $post){
+					setup_postdata($post);
+					echo '<hr />';
+					get_template_part('template-parts/quote-snippet');
+				}
+				wp_reset_postdata();
+			?>
+			
 		</section>
 
-		<section class="site-content news-section">
-			<header>
-				<h2>News from the College of Arts & Sciences</h2>
+		<section class="site-content">
+			<header class="entry-header">
+				<h2 class="entry-title">News from the College of Arts & Sciences</h2>
 			</header>
 			
-			<article class="news-content">
+			<article class="entry-content">
 			<?php
 
 				foreach($news_posts as $post){
