@@ -52,3 +52,28 @@
 		padding-top: 100%;
 	}
 }
+
+
+.pagination {
+	margin-top: 2rem;
+
+	.nav-links {
+		display: flex;
+		justify-content: center;
+
+		.page-numbers {
+			display: inline-block;
+			font-size: rem(18);
+			font-weight: bold;
+			margin: 1rem 0;
+			padding: 0.5rem;
+			line-height: 1;
+
+			&:hover {
+				background-color: var(--link-color);
+				color: white;
+				text-decoration: none;
+			}
+		}
+	}
+}

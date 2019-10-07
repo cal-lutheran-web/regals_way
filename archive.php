@@ -31,6 +31,10 @@
 		}
 		?>
 
+		<footer>
+			<?php showPagination(); ?>
+		</footer>
+
 	</main>
 
 

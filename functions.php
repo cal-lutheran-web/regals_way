@@ -205,3 +205,14 @@ function getTopThemePosts(){
 	} 
 	wp_reset_postdata();
 }
+
+
+
+function showPagination(){
+	the_posts_pagination( array(
+		'mid_size'  => 10,
+		'prev_text' => __( 'Newer', 'textdomain' ),
+		'next_text' => __( 'Older', 'textdomain' ),
+		'screen_reader_text' => __( 'Archive Navigation', 'textdominan' )
+	));
+}
