@@ -10,5 +10,7 @@
 
 <?php wp_footer(); ?>
 
+<script src="<?php bloginfo('template_url'); ?>/js/site.js" defer></script>
+
 </body>
 </html>
