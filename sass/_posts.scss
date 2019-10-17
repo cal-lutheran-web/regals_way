@@ -63,15 +63,13 @@
 	ul {
 		list-style: square;
 		padding-left: 1rem;
-		break-inside: avoid;
-		break-before: avoid;
-		clear: both;
 	}
 }
 
 hr {
 	border: 2px solid var(--gray2);
 	margin: 2rem 0;
+	clear: both;
 }
 
 .post-intro {
