@@ -4,6 +4,10 @@
 include 'functions/custom-fields.php';
 
 
+
+// add editor styles
+add_editor_style('editor-style.css');
+
 // remove native categories and tags from admin menu, we will do our own
 function remove_menus(){
 	remove_menu_page('edit-comments.php');

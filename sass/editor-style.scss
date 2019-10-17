@@ -1,0 +1,12 @@
+@import '_setup';
+
+body {
+	font-family: var(--body-font);
+	font-size: 100%;
+	line-height: 1.5;
+	color: var(--body-color);
+}
+
+hr {
+	clear: both;
+}
