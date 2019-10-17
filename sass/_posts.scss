@@ -108,6 +108,15 @@ hr {
 		padding-left: 1em;
 	}
 
+	blockquote {
+		&::after { display: none }
+
+		border: 0;
+		padding: 0;
+		margin: 1rem 0;
+		font-size: rem(18);
+	}
+
 	@media (min-width: 768px){
 		margin: 0 0 2rem 2rem;
 		width: 300px;
