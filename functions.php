@@ -16,6 +16,9 @@ function filter_ptags_on_images($content){
  
 add_filter('the_content', 'filter_ptags_on_images');
 
+// remove p tags on content
+//remove_filter( 'the_content', 'wpautop' );
+
 
 // remove native categories and tags from admin menu, we will do our own
 function remove_menus(){

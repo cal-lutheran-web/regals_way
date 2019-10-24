@@ -52,7 +52,7 @@ $theme_terms = get_terms('theme', array(
 
 		<?php } ?>
 
-		<section class="site-content">
+		<section class="site-content post">
 			<header class="entry-header">
 				<h2 class="entry-title">News from the College of Arts & Sciences</h2>
 			</header>
