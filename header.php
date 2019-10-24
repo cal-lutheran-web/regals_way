@@ -10,11 +10,13 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<?php if(is_single()){ ?>
+	<?php if(is_single()){ 
+		$desc = get_field('intro') ? get_field('intro') : get_the_excerpt();		
+	?>
 		<meta property="og:url" content="<?php the_permalink(); ?>">
 		<meta property="og:type" content="article">
 		<meta property="og:title" content="<?php the_title(); ?>">
-		<meta property="og:description" content="<?php echo get_the_excerpt(); ?>">
+		<meta property="og:description" content="<?php echo $desc; ?>">
 		<?php if(has_post_thumbnail( $post->ID )){ 
 			$featured_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID ), 'large' )	
 		?>
