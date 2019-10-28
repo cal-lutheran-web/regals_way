@@ -14,8 +14,12 @@ $theme_terms = get_terms('theme', array(
 		</section>
 
 		<section class="quotes-section">
-
 			<?php getRandomQuote(); ?>
+		</section>
+
+		<section class="instagram-section">
+			<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+			<div class="elfsight-app-0330ef71-ee4a-43dc-97e3-f75dc3fd826e"></div>
 		</section>
 
 		<?php
