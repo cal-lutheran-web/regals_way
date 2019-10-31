@@ -162,6 +162,30 @@ acf_add_local_field_group(array(
 			'return_format' => 'object',
 			'multiple' => 0,
 		),
+		array(
+			'key' => 'field_5dbb0ca75f387',
+			'label' => 'Homepage Highlight',
+			'name' => 'homepage_highlight',
+			'type' => 'checkbox',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'true' => 'Display as highlighted post on homepage',
+			),
+			'allow_custom' => 0,
+			'default_value' => array(
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+			'return_format' => 'value',
+			'save_custom' => 0,
+		),
 	),
 	'location' => array(
 		array(
