@@ -200,6 +200,9 @@ function getTopThemePosts(){
 		'hide_empty' => false,
 	));
 
+	$highlight_post = array();
+	$sorted_posts = array();
+
 	foreach($theme_terms as $key=>$item){
 		$theme_top_posts = new WP_Query(array(
 			'post_type' => 'post',
@@ -212,14 +215,35 @@ function getTopThemePosts(){
 			)
 		));
 
+		$top_posts[] = $theme_top_posts;
+
 		while ( $theme_top_posts->have_posts() ) {
 			$theme_top_posts->the_post();
-			get_template_part('template-parts/post-card');
+		
+			$sorted_posts[] += get_the_ID();
 		};
 
 		wp_reset_postdata();
 	} 
 	wp_reset_postdata();
+
+	$top_posts_sorted = array_merge($highlight_post,$sorted_posts);
+	
+	$top_sorted_query = new WP_Query(
+		array(
+			'post_type' => 'post',
+			'post__in' => $sorted_posts,
+			'meta_key' => 'homepage_highlight',
+			'orderby' => 'meta_value'
+		) 
+	);
+	
+	while($top_sorted_query->have_posts()){
+		$top_sorted_query->the_post();
+		get_template_part('template-parts/post-card');
+	}
+	wp_reset_postdata();
+	
 }
 
 

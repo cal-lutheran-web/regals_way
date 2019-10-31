@@ -15,7 +15,7 @@
 	
 ?>
 
-<article class="post-card <?php echo $post_tags; ?>">
+<article class="post-card <?php echo $post_tags; ?>" id="post-<?php echo $post->ID; ?>">
 	<header><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
 	<figure class="post-card-image" style="background-image: url('<?php echo $featured_img; ?>');"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"></a></figure>
 	<?php if($hide_theme_icon !== true){ ?>
