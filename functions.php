@@ -80,7 +80,8 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'show_ui' => true,
 			'show_admin_column' => true,
 			'show_in_nav_menus' => true,
-			'show_tagcloud' => false
+			'show_tagcloud' => false,
+			'show_in_rest' => true
 		));
 
 		// magazine themes taxonomy
@@ -94,6 +95,7 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'show_ui' => true,
 			'show_admin_column' => true,
 			'show_in_nav_menus' => true,
+			'show_in_rest' => true
 		));
 
 
@@ -118,6 +120,7 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'exclude_from_search'   => false,
 			'publicly_queryable'    => true,
 			'capability_type'       => 'post',
+			'show_in_rest' => true
 		) );
 
 
@@ -142,6 +145,7 @@ if ( ! function_exists( 'regals_way_setup' ) ) :
 			'exclude_from_search'   => false,
 			'publicly_queryable'    => true,
 			'capability_type'       => 'post',
+			'show_in_rest' => true
 		) );
 
 
