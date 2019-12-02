@@ -17,10 +17,10 @@ $theme_terms = get_terms('theme', array(
 			<?php getRandomQuote(); ?>
 		</section>
 
-		<section class="instagram-section">
+		<?php /* <section class="instagram-section">
 			<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 			<div class="elfsight-app-0330ef71-ee4a-43dc-97e3-f75dc3fd826e"></div>
-		</section>
+		</section> */ ?>
 
 		<?php
 			// get sections for each theme tag
