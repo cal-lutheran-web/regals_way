@@ -1,67 +1,93 @@
 .theme-icon {
 	background-repeat: no-repeat;
-	background-size: 4em;
+	background-size: 4rem 4rem;
 	background-position: center center;
 	width: 5rem;
 	height: 5rem;
 	margin: 0;
 	padding: 0;
 
-	.entry-content & {
+	&.size-small {
+		width: 3rem;
+		height: 3rem;
+		background-size: 2rem 2rem;
+	}
+
+	.post & {
 		float: right;
-		margin: -2rem -2rem 2rem 2rem;
-	}
-
-	.theme-engagement & {
-		background-color: var(--engagement);
-		background-image: url('images/theme-icons/engagement-white.svg');
-	}
-}
-
-
-.theme-innovation {
-	h1, a {
-		color: var(--innovation);
+		margin: -1rem -1rem 1rem 1rem;
+		
+		@media (min-width: 768px){
+			margin: -2rem -2rem 2rem 2rem;
+		}
 	}
 }
 
 
-.theme-engagement {
-	h1, a {
-		color: var(--engagement);
+.theme-section-title {
+	font-family: var(--standout-font);
+	font-size: rem(32);
+	text-transform: uppercase;
+	font-weight: normal;
+	line-height: 1.1;
+	margin: 0 0 2rem 0;
+
+	> a::after {
+		content: ' ➜';
+		display: inline;
 	}
 
-	.entry-content {
+	.theme-icon {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 1rem;
+	}
+}
 
-		h2 {
-			color: var(--engagement);
+
+@mixin theme-style($name){
+	.theme-#{$name} {
+
+		&.posts-section {
+			border-top: 4px solid var(--#{$name});
+			border-bottom: 4px solid var(--#{$name});
 		}
 
-		blockquote {
-			border-color: var(--engagement);
+		.theme-icon {
+			background-color: var(--#{$name});
+			background-image: url('images/theme-icons/#{$name}-white.svg');
+		}
 
-			&::after {
-				background-image: url('images/theme-icons/quotes-blue.svg');
+		h1, h2, h3, .theme-section-title {
+			color: var(--#{$name});
+		}
+
+		.entry-content {
+
+			h2 {
+				color: var(--#{$name});
+			}
+
+			blockquote {
+				border-color: var(--#{$name});
+
+				&::after {
+					color: var(--#{$name});
+				}
+			}
+
+		}
+
+		.sidebar-box {
+			h3 {
+				color: var(--#{$name});
 			}
 		}
-
-	}
-
-	.sidebar-box {
-		h3 {
-			color: var(--engagement);
-		}
 	}
 }
 
-.theme-exploration {
-	h1, a {
-		color: var(--exploration);
-	}
-}
 
-.theme-relevance {
-	h1, a {
-		color: var(--relevance);
-	}
-}
+@include theme-style(engagement);
+@include theme-style(innovation);
+@include theme-style(exploration);
+@include theme-style(relevance);

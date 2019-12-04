@@ -6,7 +6,7 @@ var autoprefixer = require('gulp-autoprefixer');
 
 
 function sassCompile() {
-	return gulp.src('./sass/style.scss')
+	return gulp.src(['./sass/style.scss','./sass/editor-style.scss'])
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}).on('error', sass.logError))

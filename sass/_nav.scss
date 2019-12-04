@@ -1,5 +1,15 @@
+.site-navigation {
+	order: 3;
+
+	@media (min-width: 768px){
+		align-self: flex-end;
+		flex: 0 0 auto;
+	}
+}
+
 .site-nav-list {
 	display: flex;
+	justify-content: center;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -9,10 +19,11 @@
 		margin: 0;
 
 		> a {
-			font-family: var(--standout-font);
-			font-size: 2em;
-			text-decoration: none;
-			text-transform: uppercase;
+			display: block;
 		}
+	}
+
+	@media (min-width: 768px){
+		display: flex;
 	}
 }

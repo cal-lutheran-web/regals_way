@@ -1,0 +1,74 @@
+.quotes-section {
+	background-color: var(--gray1);
+	color: white;
+	margin-bottom: 3rem;
+	padding: 1rem;
+
+	header {
+		margin-bottom: 2rem;
+
+		h2 {
+			font-weight: normal;
+			font-size: rem(24);
+			margin: 0;
+			line-height: 1;
+		}
+	}
+
+	@media (min-width: 768px){
+		padding: 2rem;
+
+		header h2 {
+			font-size: rem(36);
+		}
+	}
+}
+
+.quote-snippet {
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	grid-gap: 1rem;
+	color: var(--gold);
+
+	blockquote {
+		margin: 0;
+		padding: 0;
+		order: 2;
+
+		p {
+			margin: 0 0 1rem 0;
+
+			&::before, &::after {
+				content: '❝';
+				color: white;
+				font-size: rem(36);
+				display: inline-block;
+				vertical-align: bottom;
+				line-height: .25;
+			}
+
+			&::after {
+				content: '❞';
+			}
+		}
+
+		cite {
+			color: white;
+			font-style: normal;
+
+			strong {
+				color: var(--gold);
+			}
+		}
+	}
+
+	.quote-img {
+		order: 1;
+		width: 100%;
+		height: auto;
+	}
+
+	@media (min-width: 768px){
+		grid-template-columns: 150px 1fr;
+	}
+}

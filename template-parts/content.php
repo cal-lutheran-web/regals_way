@@ -1,16 +1,16 @@
 <?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Regals_Way
- */
+
+	$post_tags = '';
+	$theme_tags = wp_get_post_terms($post->ID,'theme');
+
+	foreach($theme_tags as $key=>$item){
+		$post_tags = $item->slug;
+	}
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<aside class="theme-icon"></aside>
+	<aside><a href="<?php echo get_bloginfo('url').'/theme/'.$post_tags; ?>" class="theme-icon" title=""></a></aside>
 
 	<header class="entry-header">
 		<?php 
@@ -57,9 +57,15 @@
 
 		
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer">
+		<?php
+			$issue_data = wp_get_post_terms($post->ID,'issue')[0];
 
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+			if(!empty($issue_data->slug)){
+				echo '<p>Appeared in the <a href="'.get_bloginfo('url').'/issue/'.$issue_data->slug.'">'.$issue_data->name.'</a> issue.</p>';
+			}
+		?>
+	</footer>
+</article>

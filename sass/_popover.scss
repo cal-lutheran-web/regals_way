@@ -1,0 +1,115 @@
+$timing: 250ms;
+
+body.modal-on { overflow: hidden; }
+
+#popover-container {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 20000;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	
+	background-color: rgba(black,0.6);
+	opacity: 0;
+	visibility: hidden;
+	transition: 250ms linear opacity;
+	
+	.modal-on & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+
+
+#modal-box {
+	background: white;
+	position: relative;
+	box-shadow: 0 0 20px black;
+	border-radius: 3px;
+	flex: 0 0 auto;
+	max-width: 1170px;
+	width: 100%;
+	max-height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	cursor: default;
+	
+	opacity: 0;
+	visibility: hidden;
+	transition: $timing ease-in-out all;
+	transform: scale(0);
+	
+	.modal-on & {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+	}
+	
+	@media (min-width: 1024px){
+		width: 50%;
+	}
+	
+	
+}
+
+#modal-box-content {
+	padding: 2rem 1rem 1rem 1rem;
+	
+	@media (min-width: 768px){
+		padding: 2rem;
+	}
+}
+
+#modal-header {
+	padding: 0.5rem;
+}
+
+#close-modal-box {
+	display: inline-block;
+	font-weight: bold;
+	font-size: rem(20);
+	z-index: 200;
+	cursor: pointer;
+	line-height: 1em;
+	color: var(--link-color);
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	
+	&::before {
+		vertical-align: middle;
+		margin: 0;
+	}
+	
+	&:hover {
+		color: var(--red1);
+	}
+	
+}
+
+#modal-overlay {
+	background: rgba(black,0.8);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	opacity: 0;
+	visibility: hidden;
+	transition: $timing linear all;
+	cursor: pointer;
+	
+	.modal-on & {
+		opacity: 1;
+		visibility: visible;
+	}
+}

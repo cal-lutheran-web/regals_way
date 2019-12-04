@@ -1,39 +1,114 @@
 .site-header {
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
+	
+	@media (min-width: 768px){
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 .site-branding {
-	display: flex;
-	align-items: center;
+	order: 1;
+
+	@media (min-width: 768px){
+		display: flex;
+		align-items: center;
+		flex: 1 1 auto;
+	}
 }
 
 
 .site-title {
-	display: inline-block;
-	padding: 20px;
-	background-color: var(--purple-alt);
 	margin: 0;
-
+	width: 100%;
+	flex: 0 0 275px;
 }
 
 .site-title-mark {
 	display: block;
-	background-image: url('images/the-college-mark.svg');
+	background-color: var(--purple-alt);
+	background-image: url('images/the-college-mark-sideways.svg');
 	background-position: center center;
-	background-size: contain;
+	background-size: auto 4rem;
 	background-repeat: no-repeat;
-	box-sizing: content-box;
-	width: 300px;
-	height: 70px;
-	text-indent: -2000px;
+	width: 100%;
+	height: auto;
+
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: auto;
+		padding-top: 5rem;
+	}
 }
 
 .site-description {
 	font-family: var(--heading-font);
-	font-size: 1.5rem;
-	line-height: 1.25em;
+	font-size: rem(14);
+	line-height: 1.25;
 	color: var(--purple);
-	margin: 0 0 0 1rem;
+	margin: 1rem;
 	padding: 0;
-	max-width: 30ch;
+	flex: 0 1 300px;
+
+	@media (min-width: 768px){
+		margin: 0 20px 0 20px;
+	}
+}
+
+
+
+// social media
+
+.social-media-links {
+	order: 3;
+	align-self: center;
+	margin: 1rem 0 0 0;
+
+	@media (min-width: 768px){
+		order: 2;
+		margin: 0 1rem;
+	}
+}
+
+
+.social-media-list {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	> li {
+		padding: 0;
+		margin: 0;
+		line-height: 1;
+	}
+}
+
+.social-media-icon {
+	display: block;
+	padding: 0.25rem;
+	border-radius: 10px;
+
+	> svg {
+		display: block;
+		width: 2rem;
+		height: 2rem;
+
+		path {
+			fill: var(--purple-alt);
+		}
+	}
+
+	&:hover {
+		background: var(--purple-alt);
+
+		> svg { 
+			path {
+				fill: var(--gold);
+			}
+		}
+	}
 }
