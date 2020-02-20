@@ -1,6 +1,7 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
+const gulp = require("gulp");
+const sass = require("gulp-sass");
+const autoprefixer = require("gulp-autoprefixer");
+
 
 // SASS
 
@@ -24,5 +25,5 @@ exports.default = function () {
 	gulp.watch('./sass/*.scss')
 		.on('change', function (file) {
 			sassCompile(file);
-		})
+		});
 }
