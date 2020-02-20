@@ -18,7 +18,7 @@
   "homepage": "https://github.com/cal-lutheran-web/regals_way#readme",
   "dependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.0",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-sass": "^4.0.2"
   },
   "browserslist": [
