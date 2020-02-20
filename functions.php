@@ -4,9 +4,12 @@
 include 'functions/custom-fields.php';
 
 
-
 // add editor styles
-add_editor_style('editor-style.css');
+
+function site_block_editor_styles() {
+    wp_enqueue_style( 'site-block-editor-styles', get_theme_file_uri( '/editor-style.css' ), false, '1.0', 'all' );
+}
+add_action( 'enqueue_block_editor_assets', 'site_block_editor_styles' );
 
 
 // remove p tag around images
