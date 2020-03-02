@@ -30,8 +30,9 @@
 		?>
 			
 		<?php
+			$sidebar_data = get_field('sidebar');
 
-			if(get_field('sidebar')['sidebar_content'] !== ''){
+			if(isset($sidebar_data)){
 			echo '
 				<div class="sidebar-box">
 					<h3>'.get_field('sidebar')['sidebar_title'].'</h3>
