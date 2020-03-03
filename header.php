@@ -30,6 +30,13 @@
 
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css<?php echo '?v='.rand(1,10000); ?>">
 
+	<?php if($_SERVER['SERVER_NAME'] !== 'clu-wp.local'){ ?>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123836-39 "></script>
+		<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-123836-39');</script> 
+	<?php } ?>
+
+
 	<?php wp_head(); ?>
 </head>
 
