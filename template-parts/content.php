@@ -31,15 +31,18 @@
 			
 		<?php
 			$sidebar_data = get_field('sidebar');
+			$sidebar_title = $sidebar_data['sidebar_title'];
+			$sidebar_content = $sidebar_data['sidebar_content'];
+			
 
-			if(isset($sidebar_data)){
-			echo '
-				<div class="sidebar-box">
-					<h3>'.get_field('sidebar')['sidebar_title'].'</h3>
-					'.get_field('sidebar')['sidebar_content'].'
-				</div>
-			';
-		}
+			if(strlen($sidebar_title) > 0 && strlen($sidebar_content) > 0){
+				echo '
+					<div class="sidebar-box">
+						<h3>'.get_field('sidebar')['sidebar_title'].'</h3>
+						'.get_field('sidebar')['sidebar_content'].'
+					</div>
+				';
+			}
 
 
 		the_content( sprintf(
