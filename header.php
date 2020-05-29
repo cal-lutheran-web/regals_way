@@ -10,6 +10,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico">
+
 	<?php if(is_single()){ 
 		$desc = get_field('intro') ? get_field('intro') : get_the_excerpt();		
 	?>
