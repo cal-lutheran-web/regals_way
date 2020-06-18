@@ -94,6 +94,39 @@ get_header();
 		</section>
 
 
+		<?php
+			$this_term = get_queried_object();
+			$issuu_eng = get_field('issuu_eng',$this_term);
+			$issuu_esp = get_field('issuu_esp',$this_term);
+
+			if(!empty($issuu_eng) || !empty($issuu_esp)){
+		?>
+
+			<section class="site-content">
+				<header class="entry-header">
+					<h2 class="entry-title">Print Archive of this Issue</h2>
+				</header>
+
+				<div class="issuu-embeds">
+					<?php if($issuu_eng !== ''){ ?>
+						<div class="embed-card">
+							<h3>English Edition</h3>
+							<?php echo $issuu_eng; ?>
+						</div>
+					<?php } ?>
+
+					<?php if($issuu_esp !== ''){ ?>
+						<div class="embed-card">
+							<h3>Spanish Edition</h3>
+							<?php echo $issuu_esp; ?>
+						</div>
+					<?php } ?>
+				</div>
+			</section>
+
+		<?php } ?>
+
+
 	</main>
 
 

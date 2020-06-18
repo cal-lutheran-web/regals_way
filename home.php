@@ -77,6 +77,22 @@ $theme_terms = get_terms('theme', array(
 			</article>
 			<button class="btn btn-toggle" onclick="document.querySelector('.entry-hide').classList.toggle('entry-hide');">Read More</button>
 		</section>
+
+		<section class="site-content post">
+			<header class="entry-header">
+				<h2 class="entry-title">Issue Archives</h2>
+			</header>
+
+			<ul>
+				<?php
+					$issues = get_terms('issue');
+
+					foreach($issues as $t){
+						echo '<li><a href="'.get_bloginfo('url').'/issue/'.$t->slug.'">'.$t->name.'</a></li>';
+					}
+				?>
+			</ul>
+		</section>
 		
 	</main>
 

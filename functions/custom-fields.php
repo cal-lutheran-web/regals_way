@@ -2,6 +2,69 @@
 
 if( function_exists('acf_add_local_field_group') ):
 
+	acf_add_local_field_group(array(
+		'key' => 'group_5eebccfda0a85',
+		'title' => 'Issuu Embeds',
+		'fields' => array(
+			array(
+				'key' => 'field_5eebd5b4d92ec',
+				'label' => 'Issuu Embed Code (English Version)',
+				'name' => 'issuu_eng',
+				'type' => 'textarea',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 3,
+				'new_lines' => '',
+			),
+			array(
+				'key' => 'field_5eebd5d6d92ed',
+				'label' => 'Issuu Emebed (Spanish Version)',
+				'name' => 'issuu_esp',
+				'type' => 'textarea',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 3,
+				'new_lines' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'taxonomy',
+					'operator' => '==',
+					'value' => 'issue',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+	));
+	
+
 acf_add_local_field_group(array(
 	'key' => 'group_5d950617b65f1',
 	'title' => 'Issues',

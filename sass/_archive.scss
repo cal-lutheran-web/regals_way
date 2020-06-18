@@ -77,3 +77,14 @@
 		}
 	}
 }
+
+
+.issuu-embeds {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 2rem;
+
+	@media (min-width: 768px){
+		grid-template-columns: 1fr 1fr;
+	}
+}
