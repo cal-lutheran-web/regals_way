@@ -158,6 +158,11 @@ hr {
 	}
 }
 
+.wp-block-image img {
+	width: auto;
+	height: auto;
+}
+
 
 .wp-caption {
 	background-color: var(--gray2);
